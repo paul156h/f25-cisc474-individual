@@ -3,6 +3,7 @@
 
 [Site Map](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/site_map.jpg)
 
+[Data Model](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/data_model.md)
 
 Wireframes:
 
@@ -23,7 +24,3 @@ Wireframes:
 [Feedback Page](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/feeback_page.jpg)
 
 [Log In Page](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/login_page.jpg)
-
-
-[Data Model](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/data_model.md)
-
