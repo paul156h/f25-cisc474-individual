@@ -23,15 +23,8 @@ export default function Home() {
     return (
         <div className={styles.page}>
             <main className={styles.main}>
-                <h1>Paul's LMS Homepage</h1>
-                <p>This will have a list of upcoming assignments in all classes</p>
-                <Link href="grades">Grades Page</Link>
-            
-                <Link href="/courses">Courses Page</Link>
-
-                <Button appName="web" className={styles.secondary}>
-                    Open alert
-                </Button>
+                <h1>This is the grades page</h1>
+                    <p>There will be grades here</p>
             </main>
             <footer className={styles.footer}>
                 <p>Paul's Website</p>
