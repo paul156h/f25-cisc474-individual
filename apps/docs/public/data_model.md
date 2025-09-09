@@ -1,15 +1,18 @@
 User:
+
     • id
     • name
     • role
     • email
 
 Course:
+
     • id
     • title
     • instructor_id
 
 Assignment:
+
     • id
     • title
     • instructions
@@ -19,6 +22,7 @@ Assignment:
     • feedback_id
 
 Feedback:
+
     • id
     • submission_id
     • instructor_id

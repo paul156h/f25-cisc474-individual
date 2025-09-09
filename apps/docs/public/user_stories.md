@@ -1,5 +1,6 @@
 Web App User Stories
 Student:
+
     • As a student, I want to be able to see a list of all my assignments and their due dates
     in order to plan out when to complete my work
 
@@ -21,6 +22,7 @@ Student:
     I know which classes I need to study for
 
 Instructor:
+
     • As an instructor, I want to be able to create new courses for each class that I teach
     easily to avoid difficulties at the start of the semester
 
@@ -35,6 +37,6 @@ Instructor:
 
     • As an instructor, I want to be able to leave comments on assignments that I have
     graded in order to give feedback to my students
-    
+
     • As an instructor, I want to be able to see all of the students that are in my class in a
     single list in order to take attendance
