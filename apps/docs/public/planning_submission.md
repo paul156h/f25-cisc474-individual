@@ -1,6 +1,8 @@
 [Requirements Document](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/user_stories.md)
 
+
 [Site Map](https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/public/site_map.jpg)
+
 
 Wireframes:
 
