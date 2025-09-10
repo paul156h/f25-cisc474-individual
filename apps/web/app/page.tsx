@@ -25,10 +25,7 @@ export default function Home() {
             <main className={styles.main}>
                 <h1>Paul's LMS Homepage</h1>
                 <p>This will have a list of upcoming assignments in all classes</p>
-                <Link href="grades">Grades Page</Link>
             
-                <Link href="/courses">Courses Page</Link>
-
                 <Button appName="web" className={styles.secondary}>
                     Open alert
                 </Button>

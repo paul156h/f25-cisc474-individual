@@ -25,6 +25,7 @@ export default function Home() {
             <main className={styles.main}>
                 <h1>This is the grades page</h1>
                     <p>There will be grades here</p>
+                    <Link href="/assignment">Homework 1 - 86%</Link>
             </main>
             <footer className={styles.footer}>
                 <p>Paul's Website</p>

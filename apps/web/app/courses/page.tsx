@@ -25,6 +25,8 @@ export default function Home() {
             <main className={styles.main}>
                 <h1>This is the courses page</h1>
                     <p>There will be a list of courses here</p>
+                    <p>Courses:</p>
+                    <Link href="/course">CISC 123</Link>
             </main>
             <footer className={styles.footer}>
                 <p>Paul's Website</p>
