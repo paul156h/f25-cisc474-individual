@@ -25,7 +25,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Link href="/page.tsx">Home</Link>
+        <Link href="/">Home</Link>
         <p></p>
         <Link href="/courses">Courses</Link>
         <p></p>
