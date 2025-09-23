@@ -14,7 +14,7 @@ import assignments from "./seed-data/assignments.json";
     await Promise.all(
       users.map((user) =>
         prisma.user.upsert({
-          where: { email: user.email! }, // email is unique in schema
+          where: { email: user.email! },
           update: { ...user },
           create: { ...user, emailVerified: null },
         })
