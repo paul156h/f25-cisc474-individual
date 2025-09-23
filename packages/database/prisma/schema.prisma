@@ -42,6 +42,8 @@ model Assignment {
   title         String
   due_by?       DateTime
   courses       Course[]
+  instructions  String
+  type          
 }
 
 model Submission {
@@ -63,3 +65,20 @@ model Grade {
   user          User        @relation(fields: [grader_id], references: [id])
 }
 
+model Enrollment {
+  id            String      @id @default(cuid())
+  user_id       String
+  user          User        @relation(fields: [user_id], references: [id])
+  course_id     String
+  course        Course      @relation(fields: [course_id], references: [id])
+  user_role     Role
+  enrolled_at   DateTime
+}
+
+model Feedback {
+  id            String      @id @default(cuid())
+  created_at    DateTime
+  submission_id String
+  submission    Submission  @relation(fields: [submission_id], references: [id])
+  content       String
+}
