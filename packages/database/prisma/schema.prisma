@@ -18,6 +18,12 @@ enum Role {
   ADMIN
 }
 
+enum AssignmentType {
+  QUIZ
+  UPLOAD
+  PEER
+}
+
 model User {
   id            String      @id @default(cuid())
   name          String?
@@ -43,7 +49,7 @@ model Assignment {
   due_by?       DateTime
   courses       Course[]
   instructions  String
-  type          
+  type          AssignmentType      
 }
 
 model Submission {
@@ -52,6 +58,7 @@ model Submission {
   assignment_id String
   assignment    Assignment  @relation(fields: [assignment_id], references: [id])
   content       String
+  type          AssignmentType
 }
 
 model Grade {
