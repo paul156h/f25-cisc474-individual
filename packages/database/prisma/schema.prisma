@@ -29,6 +29,7 @@ model User {
   name          String?
   email         String?      @unique
   role          Role
+  created_at    DateTime
   Course        Course[]
   Grade         Grade[]
   Enrollment    Enrollment[]

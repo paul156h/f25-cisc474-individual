@@ -1,12 +1,72 @@
 [
-  { "id": "u1", "name": "Alice Johnson", "email": "alice@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u2", "name": "Bob Smith", "email": "bob@example.com", "emailVerified": null, "role": "PROFESSOR" },
-  { "id": "u3", "name": "Charlie Kim", "email": "charlie@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u4", "name": "Dana Lee", "email": "dana@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u5", "name": "Evan Brown", "email": "evan@example.com", "emailVerified": null, "role": "ADMIN" },
-  { "id": "u6", "name": "Fiona Green", "email": "fiona@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u7", "name": "George White", "email": "george@example.com", "emailVerified": null, "role": "PROFESSOR" },
-  { "id": "u8", "name": "Hannah Black", "email": "hannah@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u9", "name": "Ian Gray", "email": "ian@example.com", "emailVerified": null, "role": "STUDENT" },
-  { "id": "u10", "name": "Julia Adams", "email": "julia@example.com", "emailVerified": null, "role": "STUDENT" }
+  {
+    "id": "u1",
+    "name": "Alice Johnson",
+    "email": "alice@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-23T17:00:00.000Z"
+  },
+  {
+    "id": "u2",
+    "name": "Bob Smith",
+    "email": "bob@example.com",
+    "role": "INSTRUCTOR",
+    "created_at": "2025-09-22T12:15:00.000Z"
+  },
+  {
+    "id": "u3",
+    "name": "Charlie Brown",
+    "email": "charlie@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-21T08:30:00.000Z"
+  },
+  {
+    "id": "u4",
+    "name": "Diana Prince",
+    "email": "diana@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-20T15:45:00.000Z"
+  },
+  {
+    "id": "u5",
+    "name": "Evan Lee",
+    "email": "evan@example.com",
+    "role": "INSTRUCTOR",
+    "created_at": "2025-09-19T10:20:00.000Z"
+  },
+  {
+    "id": "u6",
+    "name": "Fiona Davis",
+    "email": "fiona@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-18T14:50:00.000Z"
+  },
+  {
+    "id": "u7",
+    "name": "George King",
+    "email": "george@example.com",
+    "role": "ADMIN",
+    "created_at": "2025-09-17T09:05:00.000Z"
+  },
+  {
+    "id": "u8",
+    "name": "Hannah White",
+    "email": "hannah@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-16T11:40:00.000Z"
+  },
+  {
+    "id": "u9",
+    "name": "Ian Clark",
+    "email": "ian@example.com",
+    "role": "STUDENT",
+    "created_at": "2025-09-15T16:30:00.000Z"
+  },
+  {
+    "id": "u10",
+    "name": "Julia Roberts",
+    "email": "julia@example.com",
+    "role": "INSTRUCTOR",
+    "created_at": "2025-09-14T13:25:00.000Z"
+  }
 ]
