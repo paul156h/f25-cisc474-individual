@@ -12,20 +12,54 @@ generator client {
   output   = "../generated/client"
 }
 
+enum Role {
+  STUDENT
+  PROFESSOR
+  ADMIN
+}
+
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?     @unique
   emailVerified DateTime?
-  role 
+  role          Role
 }
 
 model Course {
-  id  int
-  created_at DateTime
-  name String
-  description String?
-  owner String
-  assignments Assignment[]
+  id            String      @id @default(cuid())
+  created_at    DateTime
+  name          String?
+  description   String?
+  owner_id      String
+  owner         User        @relation(fields: [owner_id], referneces: [id])
+  assignments   Assignment[]
+}
+
+model Assignment {
+  id            String      @id @default(cuid())
+  created_at    DateTime
+  title         String
+  due_by?       DateTime
+  courses       Course[]
+}
+
+model Submission {
+  id            String      @id @default(cuid())
+  submitted_at  DateTime
+  assignment_id String
+  assignment    Assignment  @relation(fields: [assignment_id], references: [id])
+  content       String
+}
+
+model Grade {
+  id            String      @id @default(cuid())
+  graded_at     DateTime
+  submission_id String
+  submission    Submission  @relation(fields: [submission_id], references: [id])
+  score         Float
+  feedback      String
+  grader_id     String
+  user          User        @relation(fields: [grader_id], references: [id])
 }
 
