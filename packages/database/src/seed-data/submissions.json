@@ -1,0 +1,12 @@
+[
+  { "id": "s1", "submitted_at": "2024-03-05T22:00:00Z", "assignment_id": "a1", "content": "SELECT * FROM students;", "type": "QUIZ" },
+  { "id": "s2", "submitted_at": "2024-03-06T20:00:00Z", "assignment_id": "a2", "content": "HTML/CSS project zip", "type": "UPLOAD" },
+  { "id": "s3", "submitted_at": "2024-03-07T19:00:00Z", "assignment_id": "a3", "content": "Quiz answers", "type": "QUIZ" },
+  { "id": "s4", "submitted_at": "2024-03-08T21:00:00Z", "assignment_id": "a4", "content": "Peer review feedback", "type": "PEER" },
+  { "id": "s5", "submitted_at": "2024-03-09T18:00:00Z", "assignment_id": "a5", "content": "UML diagrams PDF", "type": "UPLOAD" },
+  { "id": "s6", "submitted_at": "2024-03-10T17:00:00Z", "assignment_id": "a6", "content": "Algorithm quiz answers", "type": "QUIZ" },
+  { "id": "s7", "submitted_at": "2024-03-11T16:00:00Z", "assignment_id": "a7", "content": "Jupyter notebook", "type": "UPLOAD" },
+  { "id": "s8", "submitted_at": "2024-03-12T15:00:00Z", "assignment_id": "a8", "content": "Peer review document", "type": "PEER" },
+  { "id": "s9", "submitted_at": "2024-03-13T14:00:00Z", "assignment_id": "a9", "content": "Quiz answers", "type": "QUIZ" },
+  { "id": "s10", "submitted_at": "2024-03-14T13:00:00Z", "assignment_id": "a10", "content": "Data analysis notebook", "type": "UPLOAD" }
+]

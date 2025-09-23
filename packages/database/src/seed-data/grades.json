@@ -1,0 +1,12 @@
+[
+  { "id": "g1", "graded_at": "2024-03-06T09:00:00Z", "submission_id": "s1", "score": 95.0, "feedback": "Excellent work!", "grader_id": "u2" },
+  { "id": "g2", "graded_at": "2024-03-07T09:30:00Z", "submission_id": "s2", "score": 88.5, "feedback": "Good project.", "grader_id": "u7" },
+  { "id": "g3", "graded_at": "2024-03-08T10:00:00Z", "submission_id": "s3", "score": 76.0, "feedback": "Needs improvement.", "grader_id": "u2" },
+  { "id": "g4", "graded_at": "2024-03-09T11:00:00Z", "submission_id": "s4", "score": 92.0, "feedback": "Great peer review.", "grader_id": "u7" },
+  { "id": "g5", "graded_at": "2024-03-10T12:00:00Z", "submission_id": "s5", "score": 85.0, "feedback": "Solid diagrams.", "grader_id": "u2" },
+  { "id": "g6", "graded_at": "2024-03-11T13:00:00Z", "submission_id": "s6", "score": 98.0, "feedback": "Perfect answers!", "grader_id": "u7" },
+  { "id": "g7", "graded_at": "2024-03-12T14:00:00Z", "submission_id": "s7", "score": 91.0, "feedback": "Well done.", "grader_id": "u2" },
+  { "id": "g8", "graded_at": "2024-03-13T15:00:00Z", "submission_id": "s8", "score": 87.0, "feedback": "Thorough review.", "grader_id": "u7" },
+  { "id": "g9", "graded_at": "2024-03-14T16:00:00Z", "submission_id": "s9", "score": 70.0, "feedback": "Needs more detail.", "grader_id": "u2" },
+  { "id": "g10", "graded_at": "2024-03-15T17:00:00Z", "submission_id": "s10", "score": 89.0, "feedback": "Good analysis.", "grader_id": "u7" }
+]

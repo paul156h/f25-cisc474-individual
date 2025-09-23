@@ -1,0 +1,12 @@
+[
+  { "id": "a1", "created_at": "2024-03-01T09:00:00Z", "title": "SQL Quiz", "due_by": "2024-03-05T23:59:00Z", "instructions": "Complete SQL queries", "type": "QUIZ" },
+  { "id": "a2", "created_at": "2024-03-02T10:00:00Z", "title": "Website Upload", "due_by": "2024-03-08T23:59:00Z", "instructions": "Upload HTML/CSS project", "type": "UPLOAD" },
+  { "id": "a3", "created_at": "2024-03-03T11:00:00Z", "title": "Networking Quiz", "due_by": "2024-03-07T23:59:00Z", "instructions": "Multiple choice", "type": "QUIZ" },
+  { "id": "a4", "created_at": "2024-03-04T09:30:00Z", "title": "OS Peer Review", "due_by": "2024-03-10T23:59:00Z", "instructions": "Review partner’s paper", "type": "PEER" },
+  { "id": "a5", "created_at": "2024-03-05T14:00:00Z", "title": "Software Design Upload", "due_by": "2024-03-12T23:59:00Z", "instructions": "Submit UML diagrams", "type": "UPLOAD" },
+  { "id": "a6", "created_at": "2024-03-06T15:00:00Z", "title": "Algorithm Quiz", "due_by": "2024-03-11T23:59:00Z", "instructions": "Answer algorithm questions", "type": "QUIZ" },
+  { "id": "a7", "created_at": "2024-03-07T16:00:00Z", "title": "ML Upload", "due_by": "2024-03-15T23:59:00Z", "instructions": "Upload Jupyter Notebook", "type": "UPLOAD" },
+  { "id": "a8", "created_at": "2024-03-08T17:00:00Z", "title": "Cybersecurity Peer Review", "due_by": "2024-03-18T23:59:00Z", "instructions": "Review peer’s security report", "type": "PEER" },
+  { "id": "a9", "created_at": "2024-03-09T12:00:00Z", "title": "Language Quiz", "due_by": "2024-03-20T23:59:00Z", "instructions": "Complete programming questions", "type": "QUIZ" },
+  { "id": "a10", "created_at": "2024-03-10T13:00:00Z", "title": "Data Science Upload", "due_by": "2024-03-22T23:59:00Z", "instructions": "Submit analysis notebook", "type": "UPLOAD" }
+]
