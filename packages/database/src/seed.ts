@@ -33,7 +33,7 @@ import assignments from "./seed-data/assignments.json";
 
     await Promise.all(
       enrollments.map((enrollment) =>
-        prisma.course.upsert({
+        prisma.enrollment.upsert({
           where: { id: enrollment.id! },
           update: { ...enrollment },
           create: { ...enrollment },
@@ -43,7 +43,7 @@ import assignments from "./seed-data/assignments.json";
 
     await Promise.all(
       feedbacks.map((feedback) =>
-        prisma.course.upsert({
+        prisma.feedback.upsert({
           where: { id: feedback.id! },
           update: { ...feedback },
           create: { ...feedback },
@@ -53,7 +53,7 @@ import assignments from "./seed-data/assignments.json";
 
     await Promise.all(
       grades.map((grades) =>
-        prisma.course.upsert({
+        prisma.grades.upsert({
           where: { id: grades.id! },
           update: { ...grades },
           create: { ...grades },
@@ -63,7 +63,7 @@ import assignments from "./seed-data/assignments.json";
     
     await Promise.all(
       submissions.map((submissions) =>
-        prisma.course.upsert({
+        prisma.submissions.upsert({
           where: { id: submissions.id! },
           update: { ...submissions },
           create: { ...submissions },
