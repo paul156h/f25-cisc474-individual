@@ -17,4 +17,15 @@ model User {
   name          String?
   email         String?   @unique
   emailVerified DateTime?
+  role 
 }
+
+model Course {
+  id  int
+  created_at DateTime
+  name String
+  description String?
+  owner String
+  assignments Assignment[]
+}
+
