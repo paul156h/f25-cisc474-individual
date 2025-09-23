@@ -16,7 +16,7 @@ import assignments from "./seed-data/assignments.json";
         prisma.user.upsert({
           where: { id: user.id! },
           update: { ...user },
-          create: { ...user, emailVerified: null },
+          create: { ...user },
         })
       )
     );
