@@ -46,7 +46,7 @@ model Assignment {
   id            String      @id @default(cuid())
   created_at    DateTime
   title         String
-  due_by?       DateTime
+  due_by       DateTime
   courses       Course[]
   instructions  String
   type          AssignmentType      
