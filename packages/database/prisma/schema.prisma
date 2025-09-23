@@ -25,21 +25,24 @@ enum AssignmentType {
 }
 
 model User {
-  id            String      @id @default(cuid())
+  id            String       @id @default(cuid())
   name          String?
-  email         String?     @unique
-  emailVerified DateTime?
+  email         String?      @unique
   role          Role
+  Course        Course[]
+  Grade         Grade[]
+  Enrollment    Enrollment[]
 }
 
 model Course {
-  id            String      @id @default(cuid())
-  created_at    DateTime
-  name          String?
-  description   String?
-  owner_id      String
-  owner         User        @relation(fields: [owner_id], referneces: [id])
-  assignments   Assignment[]
+  id          String       @id @default(cuid())
+  created_at  DateTime
+  name        String?
+  description String?
+  owner_id    String
+  owner       User         @relation(fields: [owner_id], references: [id])
+  assignments Assignment[]
+  Enrollment  Enrollment[]
 }
 
 model Assignment {
@@ -49,7 +52,8 @@ model Assignment {
   due_by       DateTime
   courses       Course[]
   instructions  String
-  type          AssignmentType      
+  type          AssignmentType
+  submissions: Submission[]      
 }
 
 model Submission {
@@ -59,6 +63,7 @@ model Submission {
   assignment    Assignment  @relation(fields: [assignment_id], references: [id])
   content       String
   type          AssignmentType
+  feedbacks     Feedback[]
 }
 
 model Grade {
