@@ -1,6 +1,8 @@
 Prisma Schema:
 https://github.com/paul156h/f25-cisc474-individual/blob/main/packages/database/prisma/schema.prisma
 
+CSV:
+
 Assignment:
 https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/database_CSVs/Assignment_rows.csv
 
@@ -24,3 +26,4 @@ https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/database_
 
 Prisma Migrations:
 https://github.com/paul156h/f25-cisc474-individual/blob/main/apps/docs/database_CSVs/_prisma_migrations_rows.csv
+
