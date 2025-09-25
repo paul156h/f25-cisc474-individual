@@ -25,73 +25,95 @@ enum AssignmentType {
 }
 
 model User {
-  id            String       @id @default(cuid())
-  name          String?
-  email         String?      @unique
-  role          Role
-  created_at    DateTime
-  Course        Course[]
-  Grade         Grade[]
-  Enrollment    Enrollment[]
+  id         String       @id
+  name       String?
+  email      String?      @unique
+  role       Role
+  created_at DateTime
+  Course     Course[]
+  grades_received Grade[] @relation("studentg")
+  grades_given Grade[]    @relation("professorg")
+  enrollments Enrollment[]
+  submissions Submission[]
+  feedback_given Feedback[]     @relation("professorf")
 }
 
 model Course {
-  id          String       @id @default(cuid())
+  id          String       @id
   created_at  DateTime
   name        String?
   description String?
   owner_id    String
   owner       User         @relation(fields: [owner_id], references: [id])
   assignments Assignment[]
-  Enrollment  Enrollment[]
+  enrollments  Enrollment[]
+
+  @@unique([name, description])
 }
 
 model Assignment {
-  id            String      @id @default(cuid())
-  created_at    DateTime
-  title         String
+  id           String         @id
+  created_at   DateTime
+  title        String
   due_by       DateTime
-  courses       Course[]
-  instructions  String
-  type          AssignmentType
-  submissions: Submission[]      
+  courses      Course[]
+  instructions String
+  type         AssignmentType
+  submissions  Submission[]
+
+  @@unique([title, due_by])
 }
 
 model Submission {
-  id            String      @id @default(cuid())
+  id            String         @id
   submitted_at  DateTime
   assignment_id String
-  assignment    Assignment  @relation(fields: [assignment_id], references: [id])
+  assignment    Assignment     @relation(fields: [assignment_id], references: [id])
   content       String
   type          AssignmentType
+  owner_id      String
+  owner         User           @relation(fields: [owner_id], references: [id])
   feedbacks     Feedback[]
+  grades        Grade[]
+
+  @@unique([assignment_id, owner_id])
 }
 
 model Grade {
-  id            String      @id @default(cuid())
+  id            String     @id
   graded_at     DateTime
   submission_id String
-  submission    Submission  @relation(fields: [submission_id], references: [id])
+  submission    Submission @relation(fields: [submission_id], references: [id])
   score         Float
   feedback      String
+  student_id    String
+  student       User       @relation("studentg",fields: [student_id], references: [id])
   grader_id     String
-  user          User        @relation(fields: [grader_id], references: [id])
+  teacher       User       @relation("professorg", fields: [grader_id], references: [id])
+
+  @@unique([submission_id, student_id])
 }
 
 model Enrollment {
-  id            String      @id @default(cuid())
-  user_id       String
-  user          User        @relation(fields: [user_id], references: [id])
-  course_id     String
-  course        Course      @relation(fields: [course_id], references: [id])
-  user_role     Role
-  enrolled_at   DateTime
+  id          String   @id
+  user_id     String
+  user        User     @relation(fields: [user_id], references: [id])
+  course_id   String
+  course      Course   @relation(fields: [course_id], references: [id])
+  user_role   Role
+  enrolled_at DateTime
+
+  @@unique([user_id, course_id])
 }
 
 model Feedback {
-  id            String      @id @default(cuid())
+  id            String     @id
   created_at    DateTime
   submission_id String
-  submission    Submission  @relation(fields: [submission_id], references: [id])
+  submission    Submission @relation(fields: [submission_id], references: [id])
   content       String
+  professor_id  String     
+  professor     User       @relation("professorf", fields: [professor_id], references: [id])
+
+  @@unique([submission_id, professor_id])
 }
