@@ -1,0 +1,11 @@
+id,created_at,title,due_by,instructions,type
+a1,2025-09-23 09:00:00,Database Quiz,2025-10-01 12:00:00,Answer all questions,QUIZ
+a10,2025-09-23 11:15:00,AI Ethics Essay,2025-10-28 12:00:00,Write essay,PEER
+a2,2025-09-23 09:15:00,Algorithm Project,2025-10-05 12:00:00,Submit project files,UPLOAD
+a3,2025-09-23 09:30:00,OS Assignment,2025-10-10 12:00:00,Answer OS questions,QUIZ
+a4,2025-09-23 09:45:00,Networking Lab,2025-10-12 12:00:00,Submit lab report,UPLOAD
+a5,2025-09-23 10:00:00,ML Case Study,2025-10-15 12:00:00,Submit case study,UPLOAD
+a6,2025-09-23 10:15:00,Security Quiz,2025-10-18 12:00:00,Answer security questions,QUIZ
+a7,2025-09-23 10:30:00,Web Dev Project,2025-10-20 12:00:00,Deploy website,UPLOAD
+a8,2025-09-23 10:45:00,Cloud Computing Quiz,2025-10-22 12:00:00,Answer cloud questions,QUIZ
+a9,2025-09-23 11:00:00,Data Science Project,2025-10-25 12:00:00,Submit data analysis,UPLOAD

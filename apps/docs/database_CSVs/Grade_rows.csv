@@ -1,0 +1,11 @@
+id,graded_at,submission_id,score,feedback,grader_id,student_id
+g1,2025-09-25 14:00:00,s1,95,Well done,u2,u1
+g10,2025-10-04 14:00:00,s10,94,Well done essay,u10,u6
+g2,2025-09-26 14:00:00,s2,88,Good work,u5,u3
+g3,2025-09-27 14:00:00,s3,92,Nice answers,u2,u4
+g4,2025-09-28 14:00:00,s4,85,Well done lab,u5,u6
+g5,2025-09-29 14:00:00,s5,90,Nice case study,u10,u8
+g6,2025-09-30 14:00:00,s6,87,Good answers,u10,u9
+g7,2025-10-01 14:00:00,s7,93,Excellent,u2,u1
+g8,2025-10-02 14:00:00,s8,89,Good work,u5,u3
+g9,2025-10-03 14:00:00,s9,91,Nice job,u10,u4

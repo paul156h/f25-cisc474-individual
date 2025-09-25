@@ -1,0 +1,11 @@
+id,created_at,name,description,owner_id
+c1,2025-09-10 10:00:00,Database Systems,Intro to relational databases,u2
+c10,2025-09-19 10:00:00,AI Ethics,Ethics in AI,u2
+c2,2025-09-11 10:00:00,Algorithms,Advanced algorithms,u5
+c3,2025-09-12 10:00:00,Operating Systems,OS concepts,u2
+c4,2025-09-13 10:00:00,Networking,Networking basics,u5
+c5,2025-09-14 10:00:00,Machine Learning,ML fundamentals,u10
+c6,2025-09-15 10:00:00,Security,Security fundamentals,u10
+c7,2025-09-16 10:00:00,Web Development,Full stack dev,u2
+c8,2025-09-17 10:00:00,Cloud Computing,Cloud technologies,u5
+c9,2025-09-18 10:00:00,Data Science,Data analysis,u10

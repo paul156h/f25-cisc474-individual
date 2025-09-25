@@ -1,0 +1,11 @@
+id,submitted_at,assignment_id,content,type,owner_id
+s1,2025-09-25 12:00:00,a1,Answers to quiz,QUIZ,u1
+s10,2025-10-04 12:00:00,a10,Essay submitted,PEER,u6
+s2,2025-09-26 12:00:00,a2,Project files uploaded,UPLOAD,u3
+s3,2025-09-27 12:00:00,a3,OS answers,QUIZ,u4
+s4,2025-09-28 12:00:00,a4,Lab report submitted,UPLOAD,u6
+s5,2025-09-29 12:00:00,a5,Case study uploaded,UPLOAD,u8
+s6,2025-09-30 12:00:00,a6,Security answers,QUIZ,u9
+s7,2025-10-01 12:00:00,a7,Website deployed,UPLOAD,u1
+s8,2025-10-02 12:00:00,a8,Cloud answers,QUIZ,u3
+s9,2025-10-03 12:00:00,a9,Data analysis uploaded,UPLOAD,u4

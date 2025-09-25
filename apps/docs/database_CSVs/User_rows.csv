@@ -1,0 +1,11 @@
+id,name,email,role,created_at
+u1,Alice Johnson,alice@example.com,STUDENT,2025-09-23 17:00:00
+u10,Julia Roberts,julia@example.com,PROFESSOR,2025-09-14 13:25:00
+u2,Bob Smith,bob@example.com,PROFESSOR,2025-09-22 12:15:00
+u3,Charlie Brown,charlie@example.com,STUDENT,2025-09-21 08:30:00
+u4,Diana Prince,diana@example.com,STUDENT,2025-09-20 15:45:00
+u5,Evan Lee,evan@example.com,PROFESSOR,2025-09-19 10:20:00
+u6,Fiona Davis,fiona@example.com,STUDENT,2025-09-18 14:50:00
+u7,George King,george@example.com,ADMIN,2025-09-17 09:05:00
+u8,Hannah White,hannah@example.com,STUDENT,2025-09-16 11:40:00
+u9,Ian Clark,ian@example.com,STUDENT,2025-09-15 16:30:00
