@@ -5,12 +5,17 @@
   "module": "./dist/client.mjs",
   "types": "./dist/client.d.ts",
   "exports": {
-    ".": {
-      "types": "./dist/client.d.ts",
-      "require": "./dist/client.js",
-      "import": "./dist/client.mjs"
-    }
+  ".": {
+    "types": "./dist/client.d.ts",
+    "require": "./dist/client.js",
+    "import": "./dist/client.mjs"
   },
+  "./generated/client": {
+    "import": "./generated/client/index.js",
+    "require": "./generated/client/index.js",
+    "types": "./generated/client/index.d.ts"
+  }
+},
   "scripts": {
     "db:migrate:deploy": "prisma migrate deploy",
     "db:migrate:dev": "prisma migrate dev",
