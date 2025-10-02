@@ -16,7 +16,7 @@ export class SubmissionController {
     @Get(':id')
     getOne(@Param('id') id: string) {
 
-        return this.submissionService.findOne(Number(id));
+        return this.submissionService.findOne(id);
 
     }
     

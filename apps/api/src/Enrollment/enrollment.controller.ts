@@ -16,7 +16,7 @@ export class EnrollmentController {
     @Get(':id')
     getOne(@Param('id') id: string) {
 
-        return this.enrollmentService.findOne(Number(id));
+        return this.enrollmentService.findOne(id);
 
     }
 

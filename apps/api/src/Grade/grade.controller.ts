@@ -17,7 +17,7 @@ export class GradeController {
     @Get(':id')
     getOne(@Param('id') id: string) {
 
-        return this.gradeService.findOne(Number(id));
+        return this.gradeService.findOne(id);
 
     }
 

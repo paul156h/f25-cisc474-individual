@@ -16,7 +16,7 @@ export class AssignmentController {
     @Get(':id')
     getOne(@Param('id') id: string) {
 
-        return this.assignmentService.findOne(Number(id));
+        return this.assignmentService.findOne(id);
 
     }
 

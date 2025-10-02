@@ -16,7 +16,7 @@ export class FeedbackController {
     @Get(':id')
     getOne(@Param('id') id: string) {
 
-        return this.feedbackService.findOne(Number(id));
+        return this.feedbackService.findOne(id);
 
     }
 
