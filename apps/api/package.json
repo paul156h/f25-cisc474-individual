@@ -13,8 +13,8 @@
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\"",
-    "prisma:generate": "prisma generate --schema=packages/database/prisma/schema.prisma",
-    "postinstall": "prisma generate --schema=packages/database/prisma/schema.prisma"
+    "prisma:generate": "prisma generate --schema=../../packages/database/prisma/schema.prisma",
+    "postinstall": "prisma generate --schema=../../packages/database/prisma/schema.prisma"
   },
   "dependencies": {
     "@isaacs/brace-expansion": "^5.0.0",
