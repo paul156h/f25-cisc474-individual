@@ -12,7 +12,7 @@ export class SubmissionService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
         return this.prisma.submission.findUnique( {where: { id },} );
 

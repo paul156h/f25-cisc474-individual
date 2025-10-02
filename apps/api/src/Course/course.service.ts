@@ -12,7 +12,7 @@ export class CourseService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
         return this.prisma.course.findUnique( {where: { id }} );
 

@@ -12,7 +12,7 @@ export class GradeService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
         return this.prisma.grade.findUnique( {where: { id }} );
 

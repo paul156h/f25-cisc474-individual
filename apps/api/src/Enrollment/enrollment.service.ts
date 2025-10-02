@@ -12,7 +12,7 @@ export class EnrollmentService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
         return this.prisma.enrollment.findUnique( {where: { id }} );
 

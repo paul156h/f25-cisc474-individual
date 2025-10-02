@@ -12,7 +12,7 @@ export class FeedbackService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
         return this.prisma.feedback.findUnique( {where: { id }} );
 

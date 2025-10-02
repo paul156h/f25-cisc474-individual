@@ -12,9 +12,9 @@ export class AssignmentService {
 
     }
 
-    findOne(id: number) {
+    findOne(id: string) {
 
-        return this.prisma.course.course.findUnique( {where: { id }} );
+        return this.prisma.assignment.findUnique( {where: { id }} );
 
     }
 
