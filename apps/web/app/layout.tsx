@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
+import React from "react";
 import localFont from "next/font/local";
 import "./globals.css";
 import Link from "next/link";
+import { Button } from "@repo/ui/button";
+import { BUILD_ID_FILE } from "next/dist/shared/lib/constants";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -25,13 +28,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Link href="/">Home</Link>
-        <p></p>
-        <Link href="/courses">Courses</Link>
-        <p></p>
-        <Link href="/assignments">Assignments</Link>
-        <p></p>
-        <Link href="/grades">Grades</Link>
+            <Button className="my-button" href="/">Home</Button>
+            <Button className="my-button" href="/courses">Courses</Button>
+            <Button className="my-button" href="/assignments">Assignments</Button>
+            <Button className="my-button" href="/grades">Grades</Button>
         {children}
       </body>
     </html>
