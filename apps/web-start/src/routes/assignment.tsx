@@ -1,6 +1,7 @@
 // src/routes/assignment.tsx
 import { createFileRoute, useSearch } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
+import styles from "./assignment.module.css";
 
 interface Assignment {
   id: string
@@ -28,7 +29,7 @@ function AssignmentPage() {
   useEffect(() => {
     if (!id) return
 
-    fetch(`http://localhost:3000/Assignment/${id}`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/Assignment/${id}`)
       .then((res) => res.json())
       .then((data: Assignment) => {
         setAssignment(data)
@@ -44,7 +45,7 @@ function AssignmentPage() {
   if (!assignment) return <p>Assignment not found.</p>
 
   return (
-    <div>
+    <div className={styles.page}>
       <h1>{assignment.title}</h1>
       <p><strong>ID:</strong> {assignment.id}</p>
       <p><strong>Created At:</strong> {assignment.created_at}</p>
