@@ -13,7 +13,7 @@ function AssignmentsPage() {
         <div className={styles.page}>
             <main className={styles.main}>
                 <h1>This is the assignments page</h1>
-                    <p>This is the list of assignments rendered from the backend.</p>
+                    <p>This is the list of assignment names rendered from the backend.</p>
                     <p>They will link to the assignment page once I figure out why it isn't working on the deployed site</p>
                     <AssignmentList />
             </main>
