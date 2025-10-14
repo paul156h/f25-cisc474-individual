@@ -13,7 +13,6 @@ function AssignmentsPage() {
         <div className={styles.page}>
             <main className={styles.main}>
                 <h1>This is the assignments page</h1>
-                    <p>There will be a full list of assignments here</p>
                     <AssignmentList />
             </main>
             <footer className={styles.footer}>
