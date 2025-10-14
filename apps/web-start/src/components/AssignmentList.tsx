@@ -18,7 +18,7 @@ export default function AssignmentList() {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-    fetch(`http://localhost:3000/Assignment`)
+    fetch(`${import.meta.env.VITE_BACKEND_URL}/assignment`)
       .then(res => res.json())
       .then((data: Assignment[]) => {
         setAssignments(data);
