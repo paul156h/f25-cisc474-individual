@@ -1,12 +1,12 @@
 [
-  { "id": "a1", "created_at": "2025-09-23T09:00:00.000Z", "title": "Database Quiz", "due_by": "2025-10-01T12:00:00.000Z", "instructions": "Answer all questions", "type": "QUIZ" },
-  { "id": "a2", "created_at": "2025-09-23T09:15:00.000Z", "title": "Algorithm Project", "due_by": "2025-10-05T12:00:00.000Z", "instructions": "Submit project files", "type": "UPLOAD" },
-  { "id": "a3", "created_at": "2025-09-23T09:30:00.000Z", "title": "OS Assignment", "due_by": "2025-10-10T12:00:00.000Z", "instructions": "Answer OS questions", "type": "QUIZ" },
-  { "id": "a4", "created_at": "2025-09-23T09:45:00.000Z", "title": "Networking Lab", "due_by": "2025-10-12T12:00:00.000Z", "instructions": "Submit lab report", "type": "UPLOAD" },
-  { "id": "a5", "created_at": "2025-09-23T10:00:00.000Z", "title": "ML Case Study", "due_by": "2025-10-15T12:00:00.000Z", "instructions": "Submit case study", "type": "UPLOAD" },
-  { "id": "a6", "created_at": "2025-09-23T10:15:00.000Z", "title": "Security Quiz", "due_by": "2025-10-18T12:00:00.000Z", "instructions": "Answer security questions", "type": "QUIZ" },
-  { "id": "a7", "created_at": "2025-09-23T10:30:00.000Z", "title": "Web Dev Project", "due_by": "2025-10-20T12:00:00.000Z", "instructions": "Deploy website", "type": "UPLOAD" },
-  { "id": "a8", "created_at": "2025-09-23T10:45:00.000Z", "title": "Cloud Computing Quiz", "due_by": "2025-10-22T12:00:00.000Z", "instructions": "Answer cloud questions", "type": "QUIZ" },
-  { "id": "a9", "created_at": "2025-09-23T11:00:00.000Z", "title": "Data Science Project", "due_by": "2025-10-25T12:00:00.000Z", "instructions": "Submit data analysis", "type": "UPLOAD" },
-  { "id": "a10", "created_at": "2025-09-23T11:15:00.000Z", "title": "AI Ethics Essay", "due_by": "2025-10-28T12:00:00.000Z", "instructions": "Write essay", "type": "PEER" }
+  { "id": "1f3a6b10-4c7e-4d9f-8a1b-3e5c2d7f6a8b", "created_at": "2025-09-23T09:00:00.000Z", "title": "Database Quiz", "due_by": "2025-10-01T12:00:00.000Z", "instructions": "Answer all questions", "type": "QUIZ" },
+  { "id": "2e5c7d20-1f3b-4a8e-9c6d-0b2f4a7e1d3c", "created_at": "2025-09-23T09:15:00.000Z", "title": "Algorithm Project", "due_by": "2025-10-05T12:00:00.000Z", "instructions": "Submit project files", "type": "UPLOAD" },
+  { "id": "7c1a8f30-5d2b-4e9b-8f3a-6b4c1d7e2a5f", "created_at": "2025-09-23T09:30:00.000Z", "title": "OS Assignment", "due_by": "2025-10-10T12:00:00.000Z", "instructions": "Answer OS questions", "type": "QUIZ" },
+  { "id": "4b2d6e40-8a1c-4f9d-9b3e-5c7a2d1f6e8b", "created_at": "2025-09-23T09:45:00.000Z", "title": "Networking Lab", "due_by": "2025-10-12T12:00:00.000Z", "instructions": "Submit lab report", "type": "UPLOAD" },
+  { "id": "0d3f9b50-2c6a-4e7f-8b1d-3a5e7c2f4b9d", "created_at": "2025-09-23T10:00:00.000Z", "title": "ML Case Study", "due_by": "2025-10-15T12:00:00.000Z", "instructions": "Submit case study", "type": "UPLOAD" },
+  { "id": "6e1c2a60-4b7f-4d9c-9a3e-5f2d7b1c8a4e", "created_at": "2025-09-23T10:15:00.000Z", "title": "Security Quiz", "due_by": "2025-10-18T12:00:00.000Z", "instructions": "Answer security questions", "type": "QUIZ" },
+  { "id": "1f4b7d70-3c2a-4e9f-8d6b-0a5c1e7f2b8d", "created_at": "2025-09-23T10:30:00.000Z", "title": "Web Dev Project", "due_by": "2025-10-20T12:00:00.000Z", "instructions": "Deploy website", "type": "UPLOAD" },
+  { "id": "8a5e1c80-2d3b-4f9a-9c6e-7b1d2f3a4e5c", "created_at": "2025-09-23T10:45:00.000Z", "title": "Cloud Computing Quiz", "due_by": "2025-10-22T12:00:00.000Z", "instructions": "Answer cloud questions", "type": "QUIZ" },
+  { "id": "3c2f8b90-1a6d-4e7c-8f2b-5d9a3c1e6b4f", "created_at": "2025-09-23T11:00:00.000Z", "title": "Data Science Project", "due_by": "2025-10-25T12:00:00.000Z", "instructions": "Submit data analysis", "type": "UPLOAD" },
+  { "id": "5b1d6a00-4f3e-4d9b-9c1a-2e7f5b3d6c8a", "created_at": "2025-09-23T11:15:00.000Z", "title": "AI Ethics Essay", "due_by": "2025-10-28T12:00:00.000Z", "instructions": "Write essay", "type": "PEER" }
 ]

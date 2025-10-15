@@ -1,12 +1,12 @@
 [
-  { "id": "s1", "submitted_at": "2025-09-25T12:00:00.000Z", "assignment_id": "a1", "content": "Answers to quiz", "type": "QUIZ", "owner_id": "u1" },
-  { "id": "s2", "submitted_at": "2025-09-26T12:00:00.000Z", "assignment_id": "a2", "content": "Project files uploaded", "type": "UPLOAD", "owner_id": "u3" },
-  { "id": "s3", "submitted_at": "2025-09-27T12:00:00.000Z", "assignment_id": "a3", "content": "OS answers", "type": "QUIZ", "owner_id": "u4" },
-  { "id": "s4", "submitted_at": "2025-09-28T12:00:00.000Z", "assignment_id": "a4", "content": "Lab report submitted", "type": "UPLOAD", "owner_id": "u6" },
-  { "id": "s5", "submitted_at": "2025-09-29T12:00:00.000Z", "assignment_id": "a5", "content": "Case study uploaded", "type": "UPLOAD", "owner_id": "u8" },
-  { "id": "s6", "submitted_at": "2025-09-30T12:00:00.000Z", "assignment_id": "a6", "content": "Security answers", "type": "QUIZ", "owner_id": "u9" },
-  { "id": "s7", "submitted_at": "2025-10-01T12:00:00.000Z", "assignment_id": "a7", "content": "Website deployed", "type": "UPLOAD", "owner_id": "u1" },
-  { "id": "s8", "submitted_at": "2025-10-02T12:00:00.000Z", "assignment_id": "a8", "content": "Cloud answers", "type": "QUIZ", "owner_id": "u3" },
-  { "id": "s9", "submitted_at": "2025-10-03T12:00:00.000Z", "assignment_id": "a9", "content": "Data analysis uploaded", "type": "UPLOAD", "owner_id": "u4" },
-  { "id": "s10", "submitted_at": "2025-10-04T12:00:00.000Z", "assignment_id": "a10", "content": "Essay submitted", "type": "PEER", "owner_id": "u6" }
+  { "id": "5e3d1a11-1f4c-4d9f-8a3e-7b2f5c1d6a8e", "submitted_at": "2025-09-25T12:00:00.000Z", "assignment_id": "1f3a6b10-4c7e-4d9f-8a1b-3e5c2d7f6a8b", "content": "Answers to quiz", "type": "QUIZ", "owner_id": "9a5c1e11-2b3d-4e9d-8f6a-1d7c3b4f5e2a" },
+  { "id": "1c7f4b22-2d5a-4f8c-9b1e-0a6d3f2b7c5e", "submitted_at": "2025-09-26T12:00:00.000Z", "assignment_id": "2e5c7d20-1f3b-4a8e-9c6d-0b2f4a7e1d3c", "content": "Project files uploaded", "type": "UPLOAD", "owner_id": "6f2b4d33-1d5e-4f9a-8b3c-2a7d1e5c4b9f" },
+  { "id": "8a2e1d33-4c7b-4e9d-8f2c-6d1a5b3f0e9a", "submitted_at": "2025-09-27T12:00:00.000Z", "assignment_id": "7c1a8f30-5d2b-4e9b-8f3a-6b4c1d7e2a5f", "content": "OS answers", "type": "QUIZ", "owner_id": "3c1d7b44-5f2a-4e8c-9d1b-6a3f2e7c4b5d" },
+  { "id": "3d5b6c44-1f2a-4f8e-9c3b-2a7d4f1e5c6b", "submitted_at": "2025-09-28T12:00:00.000Z", "assignment_id": "4b2d6e40-8a1c-4f9d-9b3e-5c7a2d1f6e8b", "content": "Lab report submitted", "type": "UPLOAD", "owner_id": "0d7f1a66-3b5c-4d8e-9b2d-5c1a4f7e3d9b" },
+  { "id": "6b1d4a55-5c2e-4d9f-8a3b-7f0c2e1d6b8a", "submitted_at": "2025-09-29T12:00:00.000Z", "assignment_id": "0d3f9b50-2c6a-4e7f-8b1d-3a5e7c2f4b9d", "content": "Case study uploaded", "type": "UPLOAD", "owner_id": "2b5d9f88-1d4e-4e8f-9c3a-6f2b1d5c4e7a" },
+  { "id": "0a3f7d66-2d1b-4e9c-9b6e-5c2f1a3d7b4c", "submitted_at": "2025-09-30T12:00:00.000Z", "assignment_id": "6e1c2a60-4b7f-4d9c-9a3e-5f2d7b1c8a4e", "content": "Security answers", "type": "QUIZ", "owner_id": "7e1a3b99-3f5c-4d9e-8b2d-1c6f4a7e5b2d" },
+  { "id": "5c2a1b77-4f3e-4f9a-8d1c-1e6b3a5d2c7f", "submitted_at": "2025-10-01T12:00:00.000Z", "assignment_id": "1f4b7d70-3c2a-4e9f-8d6b-0a5c1e7f2b8d", "content": "Website deployed", "type": "UPLOAD", "owner_id": "9a5c1e11-2b3d-4e9d-8f6a-1d7c3b4f5e2a" },
+  { "id": "2e7c4d88-1b3a-4e8f-9c5d-0a7f2b1e4d6c", "submitted_at": "2025-10-02T12:00:00.000Z", "assignment_id": "8a5e1c80-2d3b-4f9a-9c6e-7b1d2f3a4e5c", "content": "Cloud answers", "type": "QUIZ", "owner_id": "6f2b4d33-1d5e-4f9a-8b3c-2a7d1e5c4b9f" },
+  { "id": "7f1b3c99-5d2e-4d9e-8a6b-3c0f1a7d4b2e", "submitted_at": "2025-10-03T12:00:00.000Z", "assignment_id": "3c2f8b90-1a6d-4e7c-8f2b-5d9a3c1e6b4f", "content": "Data analysis uploaded", "type": "UPLOAD", "owner_id": "3c1d7b44-5f2a-4e8c-9d1b-6a3f2e7c4b5d" },
+  { "id": "4d2f6a00-3c1e-4f8b-9b5c-6a1d2e7f3c4b", "submitted_at": "2025-10-04T12:00:00.000Z", "assignment_id": "5b1d6a00-4f3e-4d9b-9c1a-2e7f5b3d6c8a", "content": "Essay submitted", "type": "PEER", "owner_id": "0d7f1a66-3b5c-4d8e-9b2d-5c1a4f7e3d9b" }
 ]
