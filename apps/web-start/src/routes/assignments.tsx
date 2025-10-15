@@ -14,7 +14,7 @@ function AssignmentsPage() {
             <main className={styles.main}>
                 <h1>This is the assignments page</h1>
                     <p>This is the list of assignment names rendered from the backend.</p>
-                    <p>They will link to the assignment page once I figure out why it isn't working on the deployed site</p>
+                    <p>Clicking on the assignments will bring you to the assignment page for each assignment</p>
                     <AssignmentList />
             </main>
             <footer className={styles.footer}>
