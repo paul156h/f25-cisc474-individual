@@ -11,13 +11,26 @@ interface Grade {
     feedback: string;
     grader_id: string;
     student_id: string;
-    submission?: {
-        id: string;
-        assignment?: {
-            id: string;
-            title: string;
-        };
-    };
+    submission: Submission
+}
+
+interface Submission {
+  id: string
+  submitted_at: string
+  assignment_id: string
+  content: string
+  type: 'QUIZ' | 'UPLOAD' | 'PEER'
+  owner_id: string
+  assignment: Assignment
+}
+
+interface Assignment {
+    id: string;
+    created_at: string;
+    title: string;
+    due_by: string;
+    instructions: string;
+    type: "QUIZ" | "UPLOAD" | "PEER";
 }
 
 export default function GradesList() {
@@ -44,9 +57,13 @@ export default function GradesList() {
     <ul style={{ listStyle: "none", padding: 0 }}>
       {grades.map(g => (
         <li key={g.id}>
-            <Button href={`/grade?id=${g.submission?.assignment?.id}`} variant="card">
-                {g.submission?.assignment?.title}: {g.score}
+          {g.submission ? (
+            <Button href={`/submission?id=${g.submission.id}`} variant="card">
+              {g.submission.assignment.title ?? "Untitled Assignment"}: {g.score}
             </Button>
+          ) : (
+            <span>No submission</span>
+          )}
         </li>
       ))}
     </ul>

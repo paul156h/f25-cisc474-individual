@@ -14,7 +14,10 @@ export class SubmissionService {
 
     findOne(id: string) {
 
-        return this.prisma.submission.findUnique( {where: { id },} );
+        return this.prisma.submission.findUnique({
+            where: { id },
+            include: { assignment: true },
+        });
 
     }
 

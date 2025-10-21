@@ -23,7 +23,16 @@ export class GradeService {
 
     findOne(id: string) {
 
-        return this.prisma.grade.findUnique( {where: { id }} );
+        return this.prisma.grade.findUnique({ 
+            where: { id },
+            include: {
+                submission: {
+                    include: {
+                        assignment: true,
+                    },
+                },
+            },  
+        });
 
     }
 
