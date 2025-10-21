@@ -8,13 +8,18 @@ export class CourseService {
 
     findAll() {
 
-        return this.prisma.course.findMany();
+        return this.prisma.course.findMany({
+            include: { assignments: true },
+        });
 
     }
 
     findOne(id: string) {
 
-        return this.prisma.course.findUnique( {where: { id }} );
+        return this.prisma.course.findUnique({
+            where: { id },
+            include: { assignments: true },
+        });
 
     }
 

@@ -44,7 +44,7 @@ export default function GradesList() {
     <ul style={{ listStyle: "none", padding: 0 }}>
       {grades.map(g => (
         <li key={g.id}>
-            <Button href={`/grade?id=${g.submission?.assignment?.id}`}>
+            <Button href={`/grade?id=${g.submission?.assignment?.id}`} variant="card">
                 {g.submission?.assignment?.title}: {g.score}
             </Button>
         </li>

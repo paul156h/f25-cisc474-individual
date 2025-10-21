@@ -89,6 +89,29 @@ nav a:hover {
   justify-content: center;
 }
 
+/* === FILE INPUT STYLE === */
+.file-input {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid var(--color-text);
+  border-radius: 6px;
+  background-color: #fff;
+  color: var(--color-text);
+  cursor: pointer;
+  font-family: var(--font-geist-sans);
+  font-size: 1rem;
+  transition: border-color 0.2s ease, background-color 0.2s ease;
+}
+
+.file-input:hover {
+  border-color: var(--color-accent);
+}
+
+.file-input:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 2px rgba(30, 58, 138, 0.3); /* light accent glow */
+}
+
 /* === FOOTER === */
 .footer {
   grid-row-start: 3;

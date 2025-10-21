@@ -1,6 +1,5 @@
 import { createFileRoute, useSearch } from '@tanstack/react-router'
 import { useEffect, useState } from 'react'
-import styles from "./assignment.module.css";
 import "../styles.css";
 
 interface Assignment {
@@ -50,7 +49,6 @@ function AssignmentPage() {
           <h1>{assignment.title}</h1>
           <p>Created: {new Date(assignment.created_at).toLocaleDateString()}</p>
           <p>Due: {new Date(assignment.due_by).toLocaleDateString()}</p>
-          <p>Type: {assignment.type}</p>
         </header>
 
         <section>
@@ -62,18 +60,22 @@ function AssignmentPage() {
           <p>{assignment.instructions}</p>
 
           {assignment.type === 'QUIZ' && (
-            <button className="ctas">Submit Quiz</button>
+            <div className="ctas">
+              <button>Submit Quiz</button>
+            </div>
           )}
 
           {assignment.type === 'UPLOAD' && (
-            <>
-              <input type="file" />
-              <button className="ctas">Upload File</button>
-            </>
+            <div className="ctas">
+              <input type="file" className={"file-input"} />
+              <button>Upload File</button>
+            </div>
           )}
 
           {assignment.type === 'PEER' && (
-            <button className="ctas">Submit Peer Review</button>
+            <div className="ctas">
+              <button>Submit Peer Review</button>
+            </div>
           )}
         </section>
       </main>

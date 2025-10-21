@@ -36,7 +36,9 @@ export default function AssignmentList() {
     <ul style={{ listStyle: "none", padding: 0 }}>
       {assignments.map(a => (
         <li key={a.id}>
-          <Button href={`/assignment?id=${a.id}`}>{a.title}</Button>
+          <Button href={`/assignment?id=${a.id}`} variant="card">
+            {a.title} — Due: {new Date(a.due_by).toLocaleDateString()} — Type: {a.type}
+          </Button>
         </li>
       ))}
     </ul>
