@@ -69,6 +69,7 @@ export default function CourseList() {
   const fetchCourses = async () => {
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/course`);
     const data: Course[] = await res.json();
+    console.log("Fetched data:", data); // temporary debug log
     setCourses(data);
     setLoading(false);
   };
