@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "src/prisma.service";
+import { CreateCourseDto, UpdateCourseDto } from "../../../../packages/api/src/links/dto/course.dto";
 
 @Injectable()
 export class CourseService {
@@ -21,6 +22,32 @@ export class CourseService {
             include: { assignments: true },
         });
 
+    }
+
+    create(dto: CreateCourseDto) {
+        return this.prisma.course.create({
+            data: {
+                name: dto.title,
+                description: dto.description,
+                owner: { connect: { id: dto.owner_id } },
+            },
+        });
+    }
+
+    update(dto: UpdateCourseDto) {
+        return this.prisma.course.update({
+            where: { id: dto.id },
+            data: {
+                name: dto.title ?? undefined,
+                description: dto.description ?? undefined,
+            },
+        });
+    }
+
+    delete(id: string) {
+        return this.prisma.course.delete({
+            where: { id },
+        });
     }
 
 }

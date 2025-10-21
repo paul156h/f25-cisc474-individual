@@ -14,7 +14,7 @@ model User {
   name                               String?
   email                              String?      @unique
   role                               Role
-  created_at                         DateTime
+  created_at                         DateTime     @default(now())
   Course                             Course[]
   enrollments                        Enrollment[]
   feedback_given                     Feedback[]   @relation("professorf")
@@ -26,7 +26,7 @@ model User {
 
 model Course {
   id          String       @id @default(uuid())
-  created_at  DateTime
+  created_at  DateTime     @default(now())
   name        String?
   description String?
   owner_id    String
@@ -39,7 +39,7 @@ model Course {
 
 model Assignment {
   id           String         @id @default(uuid())
-  created_at   DateTime
+  created_at   DateTime       @default(now())
   title        String
   due_by       DateTime
   instructions String
@@ -52,7 +52,7 @@ model Assignment {
 
 model Submission {
   id            String         @id @default(uuid())
-  submitted_at  DateTime
+  submitted_at  DateTime       @default(now())
   assignment_id String
   content       String
   type          AssignmentType
@@ -67,7 +67,7 @@ model Submission {
 
 model Grade {
   id            String     @id @default(uuid())
-  graded_at     DateTime
+  graded_at     DateTime   @default(now())
   submission_id String
   score         Float
   feedback      String
@@ -85,7 +85,7 @@ model Enrollment {
   user_id     String
   course_id   String
   user_role   Role
-  enrolled_at DateTime
+  enrolled_at DateTime @default(now())
   course      Course   @relation(fields: [course_id], references: [id])
   user        User     @relation(fields: [user_id], references: [id])
 
@@ -94,7 +94,7 @@ model Enrollment {
 
 model Feedback {
   id                             String     @id @default(uuid())
-  created_at                     DateTime
+  created_at                     DateTime   @default(now())
   submission_id                  String
   content                        String
   professor_id                   String
