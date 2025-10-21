@@ -5,7 +5,6 @@ export interface CreateCourseDto {
 }
 
 export interface UpdateCourseDto {
-    id: string;
     title?: string;
     description?: string;
 }

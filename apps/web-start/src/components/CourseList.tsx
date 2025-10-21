@@ -1,4 +1,3 @@
-/*
 "use client";
 console.log("Backend URL:", import.meta.env.VITE_BACKEND_URL);
 import { Button } from "@repo/ui/button";
@@ -42,8 +41,8 @@ export default function CourseList() {
     </ul>
   );
 }
-  */
 
+/*
 "use client";
 
 import { useEffect, useState } from "react";
@@ -69,7 +68,6 @@ export default function CourseList() {
   const fetchCourses = async () => {
     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/course`);
     const data: Course[] = await res.json();
-    console.log("Fetched data:", data); // temporary debug log
     setCourses(data);
     setLoading(false);
   };
@@ -141,3 +139,4 @@ export default function CourseList() {
     </ul>
   );
 }
+*/
