@@ -111,6 +111,7 @@ export default function CoursesPage() {
               marginTop: "1rem",
             }}
           >
+            <p>UUID from user table to paste into owner_id: 1b6e3f22-4c1a-4d8f-9c2b-7f5a1d3b6e8c</p>
             <input
               type="text"
               placeholder="Course Name"
