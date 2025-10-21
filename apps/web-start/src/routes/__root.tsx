@@ -10,9 +10,8 @@ import {
 import { TanStackRouterDevtoolsPanel } from "@tanstack/react-router-devtools";
 import { TanStackDevtools } from "@tanstack/react-devtools";
 import TanStackQueryDevtools from "../integrations/devtools";
-import appCss from "../styles.css?url";
+import appCss from "../styles.css?url"; // ✅ This will be used below
 import type { QueryClient } from "@tanstack/react-query";
-
 
 export interface MyRouterContext {
   queryClient: QueryClient;
@@ -44,16 +43,22 @@ function RootDocument() {
       </head>
 
       <body>
-        <nav>
-          <Link to="/" className="my-button" >Home</Link>
-          <Link to="/courses" className="my-button" >Courses</Link>
-          <Link to="/assignments" className="my-button" >Assignments</Link>
-          <Link to="/grades" className="my-button" >Grades</Link>
-        </nav>
+        <div className="page">
+          <nav>
+            <Link to="/">Home</Link>
+            <Link to="/courses">Courses</Link>
+            <Link to="/assignments">Assignments</Link>
+            <Link to="/grades">Grades</Link>
+          </nav>
 
-        <main>
-          <Outlet />
-        </main>
+          <main className="main">
+            <Outlet />
+          </main>
+
+          <footer className="footer">
+            <p>© 2025 Paul's LMS — Built with TanStack + Vite</p>
+          </footer>
+        </div>
 
         <TanStackDevtools
           config={{ position: "bottom-right" }}
@@ -62,6 +67,7 @@ function RootDocument() {
             TanStackQueryDevtools,
           ]}
         />
+
         <Scripts />
       </body>
     </html>

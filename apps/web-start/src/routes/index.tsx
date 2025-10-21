@@ -1,17 +1,17 @@
 import { createFileRoute } from '@tanstack/react-router';
-import styles from "./index.module.css";
+import "../styles.css";
 
 export const Route = createFileRoute('/')({
   component: RouteComponent,
 });
 
 function RouteComponent() {
-  return <div className={styles.page}>
-            <main className={styles.main}>
+  return <div className="page">
+            <main className="main">
                 <h1>Paul's LMS Homepage</h1>
-                <p>This will have a list of upcoming assignments in all classes</p>
+                <p>This must be a list of the next three assignments due</p>
             </main>
-            <footer className={styles.footer}>
+            <footer className="footer">
                 <p>Paul's Website</p>
             </footer>
         </div>

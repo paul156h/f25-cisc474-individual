@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SubmissionRouteImport } from './routes/submission'
 import { Route as GradesRouteImport } from './routes/grades'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as CourseRouteImport } from './routes/course'
@@ -16,6 +17,11 @@ import { Route as AssignmentsRouteImport } from './routes/assignments'
 import { Route as AssignmentRouteImport } from './routes/assignment'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SubmissionRoute = SubmissionRouteImport.update({
+  id: '/submission',
+  path: '/submission',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GradesRoute = GradesRouteImport.update({
   id: '/grades',
   path: '/grades',
@@ -54,6 +60,7 @@ export interface FileRoutesByFullPath {
   '/course': typeof CourseRoute
   '/courses': typeof CoursesRoute
   '/grades': typeof GradesRoute
+  '/submission': typeof SubmissionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -62,6 +69,7 @@ export interface FileRoutesByTo {
   '/course': typeof CourseRoute
   '/courses': typeof CoursesRoute
   '/grades': typeof GradesRoute
+  '/submission': typeof SubmissionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -71,6 +79,7 @@ export interface FileRoutesById {
   '/course': typeof CourseRoute
   '/courses': typeof CoursesRoute
   '/grades': typeof GradesRoute
+  '/submission': typeof SubmissionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -81,8 +90,16 @@ export interface FileRouteTypes {
     | '/course'
     | '/courses'
     | '/grades'
+    | '/submission'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/assignment' | '/assignments' | '/course' | '/courses' | '/grades'
+  to:
+    | '/'
+    | '/assignment'
+    | '/assignments'
+    | '/course'
+    | '/courses'
+    | '/grades'
+    | '/submission'
   id:
     | '__root__'
     | '/'
@@ -91,6 +108,7 @@ export interface FileRouteTypes {
     | '/course'
     | '/courses'
     | '/grades'
+    | '/submission'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -100,10 +118,18 @@ export interface RootRouteChildren {
   CourseRoute: typeof CourseRoute
   CoursesRoute: typeof CoursesRoute
   GradesRoute: typeof GradesRoute
+  SubmissionRoute: typeof SubmissionRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/submission': {
+      id: '/submission'
+      path: '/submission'
+      fullPath: '/submission'
+      preLoaderRoute: typeof SubmissionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/grades': {
       id: '/grades'
       path: '/grades'
@@ -156,6 +182,7 @@ const rootRouteChildren: RootRouteChildren = {
   CourseRoute: CourseRoute,
   CoursesRoute: CoursesRoute,
   GradesRoute: GradesRoute,
+  SubmissionRoute: SubmissionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

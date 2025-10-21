@@ -8,7 +8,16 @@ export class GradeService {
 
     findAll() {
 
-        return this.prisma.grade.findMany();
+        return this.prisma.grade.findMany({
+            include: {
+                submission: {
+                    include: {
+                        assignment: true,
+                    },
+                },
+            },
+        }
+        );
 
     }
 

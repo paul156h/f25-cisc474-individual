@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import styles from "./grades.module.css";
+import "../styles.css";
 import GradesList from "../components/GradesList";
 
 export const Route = createFileRoute("/grades")({
@@ -8,13 +8,13 @@ export const Route = createFileRoute("/grades")({
 
 function GradesPage() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <h1>This is the grades page</h1>
-        <p>There will be grades here</p>
+    <div className="page">
+      <main className="main">
+        <h1>GRADES</h1>
+        <p>List of grades from the backend</p>
         <GradesList />
       </main>
-      <footer className={styles.footer}>
+      <footer className="footer">
         <p>Paul's Website</p>
       </footer>
     </div>
