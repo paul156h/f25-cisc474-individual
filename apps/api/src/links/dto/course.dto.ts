@@ -1,7 +1,6 @@
 export interface CreateCourseDto {
     title: string;
     description: string;
-    owner_id: string;
 }
 
 export interface UpdateCourseDto {

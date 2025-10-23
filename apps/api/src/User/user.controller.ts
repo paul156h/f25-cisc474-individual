@@ -1,5 +1,7 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { UserService } from './user.service';
+import { AuthGuard } from '@nestjs/passport';
+import { CurrentUser } from 'src/auth/current-user.decorator';
 
 @Controller('user')
 export class UserController {
@@ -18,6 +20,17 @@ export class UserController {
 
         return this.userService.findOne(id);
 
+    }
+
+    @UseGuards(AuthGuard('jwt'))
+    @Get('me')
+    getMe(@CurrentUser() user: any) {
+        return {
+            id: user.sub,
+            email: user.email,
+            name: user.name,
+            ...user
+        };
     }
 
 }

@@ -19,7 +19,7 @@ export class CourseService {
     });
   }
 
-  create(dto: CreateCourseDto) {
+  create(dto: { title: string; description: string; owner_id: string }) {
     return this.prisma.course.create({
       data: {
         name: dto.title,
