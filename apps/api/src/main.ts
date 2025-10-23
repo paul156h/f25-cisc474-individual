@@ -2,7 +2,11 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { appendFile } from 'fs';
 
+import { config } from 'dotenv';
+config();
 
+console.log('AUTH0_ISSUER_URL:', process.env.AUTH0_ISSUER_URL);
+console.log('AUTH0_AUDIENCE:', process.env.AUTH0_AUDIENCE);
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);

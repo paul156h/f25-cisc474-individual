@@ -13,7 +13,7 @@ const config = defineConfig({
     }),
     tailwindcss(),
     cloudflare({ viteEnvironment: { name: 'ssr' } }),
-    tanstackStart(),
+    tanstackStart({spa:{enabled:true}}),
     // this must go last to ensure that SSR functions are found
     viteReact(),
   ],

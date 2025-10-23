@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Paul’s LMS</title>
+
+    <!-- ✅ CSP to prevent eval() and unsafe sources -->
+    <meta
+  http-equiv="Content-Security-Policy"
+  content="
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' blob:;
+    worker-src 'self' blob:;
+    style-src 'self' 'unsafe-inline';
+    connect-src 'self' http://localhost:3000 http://localhost:3001 https://dev-hs63f4h7wdf71viq.us.auth0.com https://f25-cisc474-individual-whps.onrender.com;
+    img-src 'self' data:;
+    font-src 'self';
+  "
+/>
+
+
+    <!-- ✅ Vite injects assets like CSS automatically, so no need for <link> -->
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- ✅ This is where the app bootstraps -->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

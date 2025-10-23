@@ -2,6 +2,152 @@ import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import "../styles.css";
 import { Button } from "@repo/ui/button";
+import { useAuth0 } from "@auth0/auth0-react";
+import { fetchCourse, updateCourse, deleteCourse } from "../api";
+
+interface Assignment {
+  id: string;
+  created_at: string;
+  title: string;
+  due_by: string;
+  instructions: string;
+  type: "QUIZ" | "UPLOAD" | "PEER";
+}
+
+interface Course {
+  id: string;
+  created_at: string;
+  name: string;
+  description: string;
+  owner_id: string;
+  assignments?: Assignment[];
+}
+
+export const Route = createFileRoute("/course")({
+  component: CoursePage,
+  validateSearch: (search: Record<string, unknown>) => ({
+    id: search.id as string | undefined,
+  }),
+});
+
+export default function CoursePage() {
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const search = useSearch({ from: "/course" });
+  const id = search.id;
+  const [course, setCourse] = useState<any>(null);
+  const [loading, setLoading] = useState(true);
+
+  const [editName, setEditName] = useState("");
+  const [editDescription, setEditDescription] = useState("");
+
+  // Load course from API
+  useEffect(() => {
+    if (!id || !isAuthenticated) return;
+
+    fetchCourse(id, getAccessTokenSilently)
+      .then((data) => {
+        setCourse(data);
+        setEditName(data.name || "");
+        setEditDescription(data.description || "");
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
+  }, [id, isAuthenticated]);
+
+  const handleEdit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!id) return;
+
+    try {
+      const updated = await updateCourse(id, { title: editName, description: editDescription }, getAccessTokenSilently);
+      setCourse(updated);
+      alert("✅ Course updated successfully!");
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to update course.");
+    }
+  };
+
+  const handleDelete = async () => {
+    if (!id) return;
+    if (!confirm("Are you sure?")) return;
+
+    try {
+      await deleteCourse(id, getAccessTokenSilently);
+      alert("🗑️ Course deleted successfully!");
+      window.location.href = "/courses";
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to delete course.");
+    }
+  };
+
+  if (loading) return <p>Loading course...</p>;
+  if (!course) return <p>Course not found.</p>;
+
+  return (
+    <div className="page">
+      <main className="main">
+        <header>
+          <h1>{course.name}</h1>
+          <p>Created: {new Date(course.created_at).toLocaleDateString()}</p>
+          <p>Owner: {course.owner_id}</p>
+        </header>
+
+        <section>
+          <p>{course.description}</p>
+
+          {course.assignments && course.assignments.length > 0 ? (
+            <div>
+              <h2>Assignments</h2>
+              <ul style={{ listStyle: "none", padding: 0 }}>
+                {course.assignments.map((assignment: Assignment) => (
+                  <li key={assignment.id}>
+                    <Button
+                      href={`/assignment?id=${assignment.id}`}
+                      variant="card"
+                    >
+                      {assignment.title} — Due: {new Date(assignment.due_by).toLocaleDateString()} — Type: {assignment.type}
+                    </Button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ) : (
+            <p>No assignments yet.</p>
+          )}
+
+          {/* Edit Form */}
+          <div style={{ marginTop: "2rem", borderTop: "1px solid #ccc", paddingTop: "1rem" }}>
+            <h2>Edit Course</h2>
+            <form onSubmit={handleEdit} style={{ display: "flex", flexDirection: "column", gap: "0.5rem", maxWidth: "400px" }}>
+              <input type="text" placeholder="New course name" value={editName} onChange={(e) => setEditName(e.target.value)} required />
+              <textarea placeholder="New course description" value={editDescription} onChange={(e) => setEditDescription(e.target.value)} required />
+              <Button type="submit">Save Changes</Button>
+            </form>
+          </div>
+
+          {/* Delete Button */}
+          <div style={{ marginTop: "1.5rem" }}>
+            <Button onClick={handleDelete} variant="card">Delete Course</Button>
+          </div>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+
+
+
+/*
+import { createFileRoute, useSearch } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import "../styles.css";
+import { Button } from "@repo/ui/button";
 
 interface Course {
   id: string;
@@ -129,7 +275,6 @@ function CoursePage() {
             <p>No assignments yet.</p>
           )}
 
-          {/* ✏️ Edit Form */}
           <div style={{ marginTop: "2rem", borderTop: "1px solid #ccc", paddingTop: "1rem" }}>
             <h2>Edit Course</h2>
             <form onSubmit={handleEdit} style={{ display: "flex", flexDirection: "column", gap: "0.5rem", maxWidth: "400px" }}>
@@ -150,7 +295,6 @@ function CoursePage() {
             </form>
           </div>
 
-          {/* 🗑️ Delete Button */}
           <div style={{ marginTop: "1.5rem" }}>
             <Button onClick={handleDelete} variant="card" className="deleteButton">
               Delete Course
@@ -162,8 +306,9 @@ function CoursePage() {
   );
 }
 
+*/
 
-//OLD PAGE
+//OLD
 
 /*
 import { createFileRoute, useSearch } from '@tanstack/react-router'

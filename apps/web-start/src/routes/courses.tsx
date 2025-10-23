@@ -1,3 +1,73 @@
+import { createFileRoute } from "@tanstack/react-router";
+import "../styles.css";
+import CourseList from "../components/CourseList";
+import { Button } from "@repo/ui/button";
+import { useState } from "react";
+import { useAuth0 } from "@auth0/auth0-react";
+import { createCourse } from "../api";
+
+export const Route = createFileRoute("/courses")({
+  component: CoursesPage,
+});
+
+export default function CoursesPage() {
+  const { isAuthenticated, getAccessTokenSilently } = useAuth0();
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [ownerId, setOwnerId] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleAddCourse = async () => {
+    if (!isAuthenticated) return alert("Please log in first!");
+    if (!name || !description || !ownerId) return alert("Fill all fields!");
+
+    setLoading(true);
+    try {
+      await createCourse({ title: name, description, owner_id: ownerId }, getAccessTokenSilently);
+      alert("✅ Course created successfully!");
+      setName(""); setDescription(""); setOwnerId("");
+
+      // Optionally, trigger CourseList to refresh here if needed
+      // e.g., by using a global event or state library
+    } catch (err) {
+      console.error(err);
+      alert("❌ Failed to create course.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="page">
+      <main className="main">
+        <h1>Courses</h1>
+
+        <CourseList />
+
+        <section
+          style={{
+            marginTop: "3rem",
+            padding: "1.5rem",
+            borderRadius: "12px",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+            background: "white",
+            maxWidth: "500px",
+            textAlign: "center",
+          }}
+        >
+          <h2>Add a New Course</h2>
+          <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Course Name" />
+          <textarea value={description} onChange={(e) => setDescription(e.target.value)} placeholder="Course Description" />
+          <input value={ownerId} onChange={(e) => setOwnerId(e.target.value)} placeholder="Owner ID" />
+
+          <Button onClick={handleAddCourse}>{loading ? "Adding..." : "➕ Create Course"}</Button>
+        </section>
+      </main>
+    </div>
+  );
+}
+
+
 /*
 //COURSES PAGE
 //import { Button } from "@repo/ui/button";
@@ -26,7 +96,8 @@ export default function CoursesPage() {
 }
     */
 
-// COURSES PAGE
+// COURSES PAGE OLD v2
+/*
 import { createFileRoute } from "@tanstack/react-router";
 import "../styles.css";
 import CourseList from "../components/CourseList";
@@ -166,3 +237,4 @@ export default function CoursesPage() {
 
 
 
+*/
