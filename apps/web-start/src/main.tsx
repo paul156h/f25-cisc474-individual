@@ -10,7 +10,7 @@ const router = getRouter();
 
 const domain = import.meta.env.VITE_AUTH0_DOMAIN!;
 const clientId = import.meta.env.VITE_AUTH0_CLIENT_ID!;
-const audience = import.meta.env.VITE_AUTH0_AUDIENCE; 
+const audience = import.meta.env.VITE_AUTH0_AUDIENCE;
 const redirectUri = window.location.origin;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
@@ -20,7 +20,12 @@ ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
       clientId={clientId}
       authorizationParams={{
         redirect_uri: redirectUri,
-        audience, 
+        audience,
+      }}
+      cacheLocation="localstorage"  
+      useRefreshTokens={true}       
+      onRedirectCallback={(appState) => {
+        window.history.replaceState({}, document.title, appState?.returnTo || window.location.pathname);
       }}
     >
       <QueryClientProvider client={queryClient}>

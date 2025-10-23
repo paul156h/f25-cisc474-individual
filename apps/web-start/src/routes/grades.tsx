@@ -11,7 +11,6 @@ function GradesPage() {
     <div className="page">
       <main className="main">
         <h1>GRADES</h1>
-        <p>List of grades from the backend</p>
         <GradesList />
       </main>
       <footer className="footer">

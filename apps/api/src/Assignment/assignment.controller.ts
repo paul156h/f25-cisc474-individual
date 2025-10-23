@@ -23,7 +23,7 @@ export class AssignmentController {
   create(@CurrentUser() user: any, @Body() dto: CreateAssignmentDto) {
     return this.assignmentService.create({
       ...dto,
-      owner_id: user.sub, // link to user (course owner or professor)
+      owner_id: user.sub, 
     });
   }
 

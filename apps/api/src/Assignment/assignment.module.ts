@@ -7,7 +7,7 @@ import { PrismaModule } from "src/prisma.module";
 
     imports: [PrismaModule],
     controllers: [AssignmentController],
-    providers: [AssignmentService, AssignmentController],
+    providers: [AssignmentService],
 
 })
 

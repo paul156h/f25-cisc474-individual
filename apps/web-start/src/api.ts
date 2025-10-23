@@ -91,6 +91,62 @@ export async function fetchAssignment(id: string, getAccessTokenSilently?: () =>
   return res.json();
 }
 
+export async function createAssignment(
+  assignment: {
+    title: string;
+    due_by: string;
+    instructions: string;
+    type: "QUIZ" | "UPLOAD" | "PEER";
+    course_ids?: string[];
+  },
+  getAccessTokenSilently?: () => Promise<string>
+) {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  const res = await fetch(`${BACKEND_URL}/assignment`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(assignment),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function updateAssignment(
+  id: string,
+  assignment: {
+    title?: string;
+    due_by?: string;
+    instructions?: string;
+    type?: "QUIZ" | "UPLOAD" | "PEER";
+    course_ids?: string[];
+  },
+  getAccessTokenSilently?: () => Promise<string>
+) {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  const res = await fetch(`${BACKEND_URL}/assignment/${id}`, {
+    method: "PUT",
+    headers,
+    body: JSON.stringify(assignment),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+// ✅ NEW: Delete Assignment
+export async function deleteAssignment(
+  id: string,
+  getAccessTokenSilently?: () => Promise<string>
+) {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  const res = await fetch(`${BACKEND_URL}/assignment/${id}`, {
+    method: "DELETE",
+    headers,
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return true;
+}
+
+
 // -------------------- Submissions --------------------
 export async function fetchSubmissions(getAccessTokenSilently?: () => Promise<string>) {
   const headers = await getAuthHeaders(getAccessTokenSilently);
@@ -106,10 +162,49 @@ export async function fetchSubmission(id: string, getAccessTokenSilently?: () =>
   return res.json();
 }
 
+export async function createSubmission(
+  submission: {
+    assignment_id: string;
+    content: string;
+    type: "QUIZ" | "UPLOAD" | "PEER";
+    owner_id: string;
+  },
+  getAccessTokenSilently?: () => Promise<string>
+) {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  const res = await fetch(`${BACKEND_URL}/submission`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(submission),
+  });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
 // -------------------- Grades --------------------
 export async function fetchGrades(getAccessTokenSilently?: () => Promise<string>) {
   const headers = await getAuthHeaders(getAccessTokenSilently);
   const res = await fetch(`${BACKEND_URL}/grade`, { headers });
+  if (!res.ok) throw new Error(await res.text());
+  return res.json();
+}
+
+export async function createGrade(
+  grade: {
+    submission_id: string;
+    score: number;
+    feedback: string;
+    grader_id: string;
+    student_id: string;
+  },
+  getAccessTokenSilently?: () => Promise<string>
+) {
+  const headers = await getAuthHeaders(getAccessTokenSilently);
+  const res = await fetch(`${BACKEND_URL}/grade`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(grade),
+  });
   if (!res.ok) throw new Error(await res.text());
   return res.json();
 }
