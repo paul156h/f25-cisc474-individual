@@ -68,7 +68,7 @@ model Submission {
   owner_id      String
   feedbacks     Feedback[]
   grades        Grade[]
-  assignment    Assignment     @relation(fields: [assignment_id], references: [id])
+  assignment Assignment @relation(fields: [assignment_id], references: [id], onDelete: Cascade)
   owner         User           @relation(fields: [owner_id], references: [id])
 
   @@unique([assignment_id, owner_id])
@@ -84,7 +84,7 @@ model Grade {
   student_id    String
   teacher       User       @relation("professorg", fields: [grader_id], references: [id])
   student       User       @relation("studentg", fields: [student_id], references: [id])
-  submission    Submission @relation(fields: [submission_id], references: [id])
+  submission Submission @relation(fields: [submission_id], references: [id], onDelete: Cascade)       
 
   @@unique([submission_id, student_id])
 }
@@ -110,7 +110,7 @@ model Feedback {
   student_id                     String
   professor                      User       @relation("professorf", fields: [professor_id], references: [id])
   User_Feedback_student_idToUser User       @relation("Feedback_student_idToUser", fields: [student_id], references: [id])
-  submission                     Submission @relation(fields: [submission_id], references: [id])
+  submission Submission @relation(fields: [submission_id], references: [id], onDelete: Cascade)
 
   @@unique([submission_id, student_id, professor_id])
 }
