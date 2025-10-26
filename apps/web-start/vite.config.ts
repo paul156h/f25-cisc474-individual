@@ -1,32 +1,28 @@
-import { defineConfig } from 'vite';
-import { tanstackStart } from '@tanstack/react-start/plugin/vite';
-import viteReact from '@vitejs/plugin-react';
-import viteTsConfigPaths from 'vite-tsconfig-paths';
-import tailwindcss from '@tailwindcss/vite';
-import { cloudflare } from '@cloudflare/vite-plugin';
-import fs from 'fs';
-import path from 'path';
+// apps/web-start/vite.config.ts
+import { defineConfig } from 'vite'
+import { tanstackStart } from '@tanstack/react-start/plugin/vite'
+import viteReact from '@vitejs/plugin-react'
+import viteTsConfigPaths from 'vite-tsconfig-paths'
+import tailwindcss from '@tailwindcss/vite'
+import { cloudflare } from '@cloudflare/vite-plugin'
+
+// Only include Cloudflare plugin if building for Cloudflare
+const isCloudflare = process.env.CLOUDFLARE_BUILD === 'true'
 
 export default defineConfig({
   plugins: [
     viteTsConfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    // ✅ Try to read wrangler.json if it exists
-    cloudflare({
-      viteEnvironment: { name: 'ssr' },
-      configPath: fs.existsSync(path.resolve('./wrangler.json'))
-        ? './wrangler.json'
-        : undefined,
-    }),
 
-    // ✅ Disable prerender explicitly
+    // ✅ Only include this when deploying to Cloudflare Pages
+    ...(isCloudflare ? [cloudflare({ viteEnvironment: { name: 'ssr' } })] : []),
+
+    // ✅ Disable prerendering for Render/local
     tanstackStart({
-      spa: { enabled: true },
-      prerender: {
-        filter: () => false, // skip prerender during Cloudflare build
-      },
+      spa: { enabled: !isCloudflare },
+      prerender: isCloudflare ? {} : { filter: () => false },
     }),
 
     viteReact(),
   ],
-});
+})
