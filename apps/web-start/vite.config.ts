@@ -10,6 +10,7 @@ import { cloudflare } from '@cloudflare/vite-plugin'
 const isCloudflare = process.env.CLOUDFLARE_BUILD === 'true'
 
 export default defineConfig({
+  base: '/',
   plugins: [
     viteTsConfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
