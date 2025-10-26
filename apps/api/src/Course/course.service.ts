@@ -19,15 +19,15 @@ export class CourseService {
     });
   }
 
-  create(dto: { title: string; description: string; owner_id: string }) {
-    return this.prisma.course.create({
-      data: {
-        name: dto.title,
-        description: dto.description,
-        owner: { connect: { id: dto.owner_id } },
-      },
-    });
-  }
+  create(dto: CreateCourseDto & { owner_id: string }) {
+  return this.prisma.course.create({
+    data: {
+      name: dto.title,
+      description: dto.description,
+      owner: { connect: { id: dto.owner_id } },
+    },
+  });
+}
 
   update(id: string, dto: UpdateCourseDto) {
   return this.prisma.course.update({

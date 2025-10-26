@@ -31,7 +31,7 @@ function HomePage() {
     const syncUser = async () => {
       try {
         const token = await getAccessTokenSilently();
-        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/user/me`, {
+        const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/users/me`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

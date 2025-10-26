@@ -8,19 +8,19 @@ export class AssignmentService {
 
   findAll() {
     return this.prisma.assignment.findMany({
-      include: { courses: true, submissions: true },
+      include: { course: true, submissions: true },
     });
   }
 
   findOne(id: string) {
     return this.prisma.assignment.findUnique({
       where: { id },
-      include: { courses: true, submissions: true },
+      include: { course: true, submissions: true },
     });
   }
 
   create(dto: CreateAssignmentDto & { owner_id: string }) {
-    const { title, due_by, instructions, type, course_ids } = dto;
+    const { title, due_by, instructions, type, course_id } = dto;
 
     return this.prisma.assignment.create({
       data: {
@@ -28,17 +28,16 @@ export class AssignmentService {
         due_by: new Date(due_by),
         instructions,
         type,
-        courses: course_ids
-          ? {
-              connect: course_ids.map((id) => ({ id })),
-            }
-          : undefined,
+        course: {
+          connect: { id: course_id },
+        },
       },
+      include: { course: true },
     });
   }
 
   update(id: string, dto: UpdateAssignmentDto) {
-    const { title, due_by, instructions, type, course_ids } = dto;
+    const { title, due_by, instructions, type, course_id } = dto;
 
     return this.prisma.assignment.update({
       where: { id },
@@ -47,16 +46,19 @@ export class AssignmentService {
         due_by: due_by ? new Date(due_by) : undefined,
         instructions,
         type,
-        courses: course_ids
+        course: course_id
           ? {
-              set: course_ids.map((id) => ({ id })),
+              connect: { id: course_id },
             }
           : undefined,
       },
+      include: { course: true },
     });
   }
 
   delete(id: string) {
-    return this.prisma.assignment.delete({ where: { id } });
+    return this.prisma.assignment.delete({
+      where: { id },
+    });
   }
 }

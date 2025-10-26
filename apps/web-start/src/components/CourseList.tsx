@@ -54,9 +54,9 @@ export default function CourseList() {
     <ul style={{ listStyle: "none", padding: 0 }}>
       {courses.map((c) => (
         <li key={c.id}>
-          <Button href={`/course?id=${c.id}`} variant="card">
-            {c.name}
-          </Button>
+            <Button href={`/courses/${c.id}`} variant="card">
+                {c.name}
+            </Button>
         </li>
       ))}
     </ul>

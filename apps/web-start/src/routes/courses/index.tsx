@@ -1,13 +1,13 @@
 "use client";
 import { createFileRoute } from "@tanstack/react-router";
-import "../styles.css";
-import CourseList from "../components/CourseList";
+import "../../styles.css";
+import CourseList from "../../components/CourseList";
 import { Button } from "@repo/ui/button";
 import { useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { createCourse } from "../api";
+import { createCourse } from "../../api";
 
-export const Route = createFileRoute("/courses")({
+export const Route = createFileRoute("/courses/")({
   component: CoursesPage,
 });
 
@@ -15,7 +15,6 @@ export default function CoursesPage() {
   const { isAuthenticated, getAccessTokenSilently, loginWithRedirect } = useAuth0();
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [ownerId, setOwnerId] = useState("");
   const [loading, setLoading] = useState(false);
 
   const handleAddCourse = async () => {
@@ -24,7 +23,7 @@ export default function CoursesPage() {
       return;
     }
 
-    if (!name || !description || !ownerId) {
+    if (!name || !description) {
       alert("Please fill in all fields!");
       return;
     }
@@ -35,7 +34,6 @@ export default function CoursesPage() {
         {
           title: name,
           description,
-          owner_id: ownerId,
         },
         getAccessTokenSilently
       );
@@ -43,8 +41,7 @@ export default function CoursesPage() {
       alert("✅ Course created successfully!");
       setName("");
       setDescription("");
-      setOwnerId("");
-      window.location.reload(); 
+      window.location.reload();
     } catch (err) {
       console.error("Error creating course:", err);
       alert("❌ Failed to create course.");
@@ -57,7 +54,6 @@ export default function CoursesPage() {
     <div className="page">
       <main className="main">
         <h1>Courses</h1>
-
         <p>This is the list of courses rendered from the backend.</p>
         <CourseList />
 
@@ -112,19 +108,7 @@ export default function CoursesPage() {
                 }}
               />
 
-              <input
-                type="text"
-                placeholder="Owner ID"
-                value={ownerId}
-                onChange={(e) => setOwnerId(e.target.value)}
-                style={{
-                  padding: "0.5rem 1rem",
-                  borderRadius: "8px",
-                  border: "1px solid #ccc",
-                }}
-              />
-
-              <Button onClick={handleAddCourse} >
+              <Button onClick={handleAddCourse}>
                 {loading ? "Adding..." : "➕ Create Course"}
               </Button>
             </div>

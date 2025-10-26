@@ -3,7 +3,7 @@ export interface CreateAssignmentDto {
   due_by: string;
   instructions: string;
   type: 'QUIZ' | 'UPLOAD' | 'PEER';
-  course_ids?: string[]; 
+  course_id: string; // single course instead of array
 }
 
 export interface UpdateAssignmentDto {
@@ -11,7 +11,7 @@ export interface UpdateAssignmentDto {
   due_by?: string;
   instructions?: string;
   type?: 'QUIZ' | 'UPLOAD' | 'PEER';
-  course_ids?: string[];
+  course_id?: string; // single optional course_id
 }
 
 export interface DeleteAssignmentDto {

@@ -10,10 +10,10 @@ datasource db {
 }
 
 model User {
-  id                                 String       @id
+  id                                 String       @id               // Auth0 sub, e.g. "auth0|65f1abcde1234567890"
   name                               String?
   email                              String?      @unique
-  role                               Role
+  role                               Role         @default(STUDENT)
   created_at                         DateTime     @default(now())
   Course                             Course[]
   enrollments                        Enrollment[]
@@ -22,7 +22,17 @@ model User {
   grades_given                       Grade[]      @relation("professorg")
   grades_received                    Grade[]      @relation("studentg")
   submissions                        Submission[]
+  authentications                    Authentication[]
 }
+
+model Authentication {
+  id          String   @id @default(uuid())
+  provider    String
+  providerId  String
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+}
+
 
 model Course {
   id          String       @id @default(uuid())
@@ -45,9 +55,8 @@ model Assignment {
   instructions String
   type         AssignmentType
   submissions  Submission[]
-  courses      Course[]       @relation("AssignmentToCourse")
-
-  @@unique([title, due_by])
+  course_id    String
+  course       Course         @relation("AssignmentToCourse", fields: [course_id], references: [id], onDelete: Cascade)
 }
 
 model Submission {
@@ -86,7 +95,7 @@ model Enrollment {
   course_id   String
   user_role   Role
   enrolled_at DateTime @default(now())
-  course      Course   @relation(fields: [course_id], references: [id])
+  course      Course   @relation(fields: [course_id], references: [id], onDelete: Cascade)
   user        User     @relation(fields: [user_id], references: [id])
 
   @@unique([user_id, course_id])

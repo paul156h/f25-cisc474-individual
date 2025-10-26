@@ -1,8 +1,6 @@
-// web-start/src/api.ts
 
 const BACKEND_URL = import.meta.env.VITE_BACKEND_URL;
 
-// Helper to get auth headers
 async function getAuthHeaders(
   getAccessTokenSilently?: () => Promise<string>
 ): Promise<Record<string, string>> {
@@ -38,7 +36,7 @@ export async function fetchCourse(id: string, getAccessTokenSilently?: () => Pro
 }
 
 export async function createCourse(
-  course: { title: string; description: string; owner_id: string },
+  course: { title: string; description: string; },
   getAccessTokenSilently?: () => Promise<string>
 ) {
   const headers = await getAuthHeaders(getAccessTokenSilently);

@@ -8,11 +8,13 @@ import { CurrentUser } from "../auth/current-user.decorator";
 export class CourseController {
   constructor(private readonly courseService: CourseService) {}
 
+  @UseGuards(AuthGuard('jwt'))
   @Get()
   getAll() {
     return this.courseService.findAll();
   }
 
+  @UseGuards(AuthGuard('jwt'))
   @Get(':id')
   getOne(@Param('id') id: string) {
     return this.courseService.findOne(id);

@@ -1,50 +1,52 @@
-import { Controller, Get, Post, Put, Delete, Param, Body, UseGuards } from '@nestjs/common';
-import { UserService } from './user.service';
-import { CreateUserDto, UpdateUserDto } from '../links/dto/user.dto';
-import { AuthGuard } from '@nestjs/passport';
+import {
+  Controller,
+  Get,
+  UnauthorizedException,
+  UseGuards,
+  Param,
+} from '@nestjs/common';
+import { UsersService } from './user.service';
 import { CurrentUser } from 'src/auth/current-user.decorator';
+import { JwtUser } from 'src/auth/jwt.strategy';
+import { AuthGuard } from '@nestjs/passport';
 
-@Controller('user')
-export class UserController {
-  constructor(private readonly userService: UserService) {}
+@Controller('users')
+export class UsersController {
+  constructor(private usersService: UsersService) {}
+
+  // ✅ Return info about the currently authenticated user
+  @UseGuards(AuthGuard('jwt'))
+  @Get('me')
+  async me(@CurrentUser() auth: JwtUser) {
+    console.log(auth);
+    if (!auth || !auth.userId) {
+      throw new UnauthorizedException();
+    }
+
+    const user = await this.usersService.findOne(auth.userId);
+    if (!user) throw new Error('User not found');
+
+    return {
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      role: user.role,
+      created_at: user.created_at,
+    };
+  }
 
   @Get()
-  getAll() {
-    return this.userService.findAll();
+  findAll() {
+    return this.usersService.findAll();
   }
 
   @Get(':id')
-  getOne(@Param('id') id: string) {
-    return this.userService.findOne(id);
+  findOne(@Param('id') id: string) {
+    return this.usersService.findOne(id);
   }
 
-  // 🧠 Authenticated route that auto-creates or returns the user
-  @UseGuards(AuthGuard('jwt'))
-  @Get('me')
-  async getMe(@CurrentUser() user: any) {
-    const dbUser = await this.userService.findOrCreateFromAuth0(user);
-    return dbUser;
-  }
-
-  // Create user manually (rarely used — for admin tools)
-  @UseGuards(AuthGuard('jwt'))
-  @Post()
-  create(@CurrentUser() user: any, @Body() dto: CreateUserDto) {
-    return this.userService.create({
-      ...dto,
-      auth0_sub: user.sub,
-    });
-  }
-
-  @UseGuards(AuthGuard('jwt'))
-  @Put(':id')
-  update(@Param('id') id: string, @Body() dto: UpdateUserDto) {
-    return this.userService.update(id, dto);
-  }
-
-  @UseGuards(AuthGuard('jwt'))
-  @Delete(':id')
-  delete(@Param('id') id: string) {
-    return this.userService.delete(id);
+  @Get('by-email/:email')
+  findByEmail(@Param('email') email: string) {
+    return this.usersService.findByEmail(email);
   }
 }

@@ -84,26 +84,35 @@ const assignmentToCourseLinks = [
     );
 
     await Promise.all(
-      assignments.map(assignment =>
-        prisma.assignment.upsert({
-          where: { id: assignment.id },
-          update: {
-            title: assignment.title,
-            due_by: new Date(assignment.due_by),
-            instructions: assignment.instructions,
-            type: assignment.type as AssignmentType,
-          },
-          create: {
-            id: assignment.id,
-            title: assignment.title,
-            due_by: new Date(assignment.due_by),
-            instructions: assignment.instructions,
-            type: assignment.type as AssignmentType,
-            created_at: new Date(assignment.created_at ?? Date.now()),
-          },
-        })
-      )
-    );
+  assignments.map(assignment => {
+    // Find the course ID that matches this assignment (from your link list)
+    const link = assignmentToCourseLinks.find(l => l.assignmentId === assignment.id);
+
+    if (!link) {
+      console.warn(`⚠️ No course link found for assignment ${assignment.id}`);
+      return null;
+    }
+
+    return prisma.assignment.upsert({
+      where: { id: assignment.id },
+      update: {
+        title: assignment.title,
+        due_by: new Date(assignment.due_by),
+        instructions: assignment.instructions,
+        type: assignment.type as AssignmentType,
+      },
+      create: {
+        id: assignment.id,
+        title: assignment.title,
+        due_by: new Date(assignment.due_by),
+        instructions: assignment.instructions,
+        type: assignment.type as AssignmentType,
+        created_at: new Date(assignment.created_at ?? Date.now()),
+        course: { connect: { id: link.courseId } }, // 👈 REQUIRED FIX
+      },
+    });
+  })
+);
 
     await Promise.all(
       submissions.map(submission =>
