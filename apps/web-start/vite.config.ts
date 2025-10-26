@@ -4,19 +4,29 @@ import viteReact from '@vitejs/plugin-react';
 import viteTsConfigPaths from 'vite-tsconfig-paths';
 import tailwindcss from '@tailwindcss/vite';
 import { cloudflare } from '@cloudflare/vite-plugin';
+import fs from 'fs';
+import path from 'path';
 
-const config = defineConfig({
+export default defineConfig({
   plugins: [
-    // this is the plugin that enables path aliases
-    viteTsConfigPaths({
-      projects: ['./tsconfig.json'],
-    }),
+    viteTsConfigPaths({ projects: ['./tsconfig.json'] }),
     tailwindcss(),
-    cloudflare({ viteEnvironment: { name: 'ssr' } }),
-    tanstackStart({spa:{enabled:true}}),
-    // this must go last to ensure that SSR functions are found
+    // ✅ Try to read wrangler.json if it exists
+    cloudflare({
+      viteEnvironment: { name: 'ssr' },
+      configPath: fs.existsSync(path.resolve('./wrangler.json'))
+        ? './wrangler.json'
+        : undefined,
+    }),
+
+    // ✅ Disable prerender explicitly
+    tanstackStart({
+      spa: { enabled: true },
+      prerender: {
+        filter: () => false, // skip prerender during Cloudflare build
+      },
+    }),
+
     viteReact(),
   ],
 });
-
-export default config;
